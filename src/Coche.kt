@@ -18,11 +18,11 @@ class Coche(
 
 
     init {
-        require(marca.isNullOrBlank()){"La marca no puede ser ni nula ni estar vacio"}
-        require(modelo.isNullOrBlank()){"El modelo no puede ser ni nulo ni estar vacio"}
-        require(matricula.length == 7){"La matricula no puede tener menos de 7 caracteres"}
-        require(numCaballos <70 || numCaballos > 700){"Los caballos no pueden ser inferior a 70 ni superior a 700"}
-        require(numPuertas < 3|| numPuertas > 5){"No puedes tener ni menos de 3 puertas ni mas de 5"}
+        require(!marca.isNullOrBlank()){"La marca no puede ser ni nula ni estar vacio"} // si la marca es nula o la dejan en blanco salta un error
+        require(!modelo.isNullOrBlank()){"El modelo no puede ser ni nulo ni estar vacio"}   //lo mismo con el modelo
+        require(matricula.length == 7){"La matricula no puede tener menos de 7 caracteres"} //Si la matricula NO tiene 7 caracteres, error
+        require(numCaballos in 70.. 700){"Los caballos no pueden ser inferior a 70 ni superior a 700"} //Con los caballos si no tiene un valor en ese rango, error
+        require(numPuertas in 3..5){"No puedes tener ni menos de 3 puertas ni mas de 5"}    // lo mismo con las puertas
 
 
         this.matricula = matricula
